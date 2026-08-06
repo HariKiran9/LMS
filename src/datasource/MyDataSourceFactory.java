@@ -7,10 +7,10 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import oracle.jdbc.pool.OracleDataSource;
-
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import com.mysql.cj.jdbc.MysqlDataSource;
+
+import oracle.jdbc.pool.OracleDataSource;
 
 public class MyDataSourceFactory {
 
