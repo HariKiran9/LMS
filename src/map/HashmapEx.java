@@ -6,7 +6,7 @@ package map;
 import java.util.HashMap;
 import java.util.Map;
 
-import gap.Employee;
+import preparation.swissre.dto.Employee;
 
 /**
  * @author Sarvani
@@ -18,9 +18,9 @@ public class HashmapEx {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Employee e1 = new Employee(3, "Bala", 29, 100300);
-		Employee e2 = new Employee(4, "Kiran", 33, 10088);
-		Employee e3 = new Employee(3, "Bala", 29, 100300);
+		Employee e1 = new Employee(3, "Bala", 29, 100300, "IT", true);
+		Employee e2 = new Employee(4, "Kiran", 33, 10088, "HR", true);
+		Employee e3 = new Employee(3, "Bala", 29, 100300, "Networking", true);
 
 		Map<Employee, String> map = new HashMap<>();
 		map.put(e1, "Hai");
