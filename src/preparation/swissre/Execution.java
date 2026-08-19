@@ -65,7 +65,8 @@ public class Execution {
 
 		Map<String, Optional<Employee>> departmentWiseHighestSalary = employees.stream().collect(Collectors.groupingBy(
 				emp -> emp.getDepartment(), Collectors.maxBy(Comparator.comparing(emp -> emp.getSalary()))));
-		log.info("Department Wise Highest Salary: {}", departmentWiseHighestSalary);
+		log.info("Approach #1: Department Wise Highest Salary: {}", departmentWiseHighestSalary);
+		departmentWiseHighestSalary.forEach((department, employee) -> log.info("Department: {}, Employee Name: {}, Employee Salary: {}",department, employee.get().getName(), employee.get().getSalary()));
 
 		String employeeNames = employees.stream().map(emp -> emp.getName()).collect(Collectors.joining(","));
 		log.info("Approach #1: Employee Names: {}", employeeNames);
@@ -77,6 +78,12 @@ public class Execution {
 
 		Integer totalSalary = employees.parallelStream().map(emp -> emp.getSalary()).reduce(0, (a, b) -> a + b);
 		log.info("Total Salary: {}", totalSalary);
+
+
+		Map<String, Optional<Employee>> departmentWiseHighestSalary2 = employees.stream().collect(Collectors.groupingBy(
+				Employee::getDepartment, Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+		log.info("Approach #2: Department Wise Highest Salary: {}", departmentWiseHighestSalary2);
+		departmentWiseHighestSalary2.forEach((department, employee) -> log.info("Department: {}, Employee Name: {}, Employee Salary: {}",department, employee.get().getName(), employee.get().getSalary()));
 
 	}
 
